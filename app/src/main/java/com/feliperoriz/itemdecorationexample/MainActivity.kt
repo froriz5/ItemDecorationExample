@@ -2,6 +2,7 @@ package com.feliperoriz.itemdecorationexample
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         recycler_view.adapter = adapter
         recycler_view.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
+        val drawable = ContextCompat.getDrawable(this, R.drawable.dummy_image)
+        recycler_view.addItemDecoration(ExampleDecoration(drawable!!))
     }
 
     private fun getDummyItems(): List<ListItem> {
