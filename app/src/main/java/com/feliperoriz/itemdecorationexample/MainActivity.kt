@@ -20,13 +20,13 @@ class MainActivity : AppCompatActivity() {
         recycler_view.adapter = adapter
         recycler_view.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
         val drawable = ContextCompat.getDrawable(this, R.drawable.dummy_image)
-        recycler_view.addItemDecoration(ExampleDecoration(drawable!!))
+        recycler_view.addItemDecoration(ExampleDecoration(drawable!!, getDummyItems()))
     }
 
     private fun getDummyItems(): List<ListItem> {
         val dummyData = mutableListOf<ListItem>()
         for (num in 1..20) {
-            dummyData.add(ListItem(timestamp = num.toLong()))
+            dummyData.add(ListItem(timestamp = num.toLong(), showDisplayAvatar = num % 2 == 0))
         }
         return dummyData
     }
